@@ -1,6 +1,7 @@
 from django.shortcuts import render_to_response, get_object_or_404
 from mysite.polls.models import Poll
-from django.http import Http404
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
 
 def index(request):
     latest_poll_list = Poll.objects.all().order_by('-pub_date')[:5]
