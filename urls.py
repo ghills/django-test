@@ -5,17 +5,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^mysite/', include('mysite.foo.urls')),
-
-    # Uncomment the admin/doc line below and add 'django.contrib.admindocs' 
-    # to INSTALLED_APPS to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
-    (r'^polls/$', 'mysite.polls.views.index'),
-    (r'^polls/(?P<poll_id>\d+)/$','mysite.polls.views.detail'),
-    (r'^polls/(?P<poll_id>\d+)/results/$','mysite.polls.views.results'),
-    (r'^polls/(?P<poll_id>\d+)/vote/$','mysite.polls.views.vote'),
+    (r'^polls/', include('mysite.polls.urls')),
     (r'^admin/(.*)', admin.site.root),
 )
